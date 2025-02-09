@@ -57,7 +57,6 @@ collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cane_range"]
 visible = false
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(-11, -5.00846, -4, -8.01354, 10, -3.00508, 10, 3.00508, 5, 9.01523, -11, 3.00508)
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

@@ -14,7 +14,6 @@ func _ready() -> void:
 		wall.connect("flash_triggered", Callable(self, "_on_wall_flash_triggered"))
 
 func _on_wall_flash_triggered(target_offset: float, flash_duration: float, left_col: float, right_col: float, top_row: float, bottom_row: float, side: float) -> void:
-	print(' asfasdf got here')
 	var value = set_points(target_offset, flash_duration, left_col, right_col, top_row, bottom_row, side)
 	var global_pointA = value[0]
 	var global_pointB = value[1]
@@ -23,7 +22,6 @@ func _on_wall_flash_triggered(target_offset: float, flash_duration: float, left_
 	
 	var pointA = global_pointA
 	var pointB = global_pointB
-	print(pointA, " ", pointB)
 	for x_val in x_coords:
 		# Calculate t from 0 to 1. Assumes pointB.x != pointA.x.
 		var t: float = (x_val - pointA.x) / (pointB.x - pointA.x)
@@ -36,41 +34,31 @@ func _on_wall_flash_triggered(target_offset: float, flash_duration: float, left_
 
 		marker.set_base_data(base_point, marker_target_height, marker_duration)
 		# Add the marker to the scene.
-		if x_val in keep:
-			keep_lines.append(marker)
-		else:
-			marker_lines.append(marker)
+		marker_lines.append(marker)
 
 # A list of x coordinates at which to spawn markers.
 var x_coords: Array = [150, 175, 200, 250, 300, 350, 400]
 
 # Keep a reference to each marker for later filtering.
 var marker_lines: Array = []
-var keep_lines: Array = []
 
 # This function shows only those markers whose base x coordinate lies within [min_x, max_x].
-func filter_markers(min_x: float, max_x: float, min_y: float, max_y: float) -> void:
-	for marker in keep_lines:
-		if marker.base_position.x >= min_x - 20 and marker.base_position.x <= max_x + 20 and marker.base_position.y >= min_y - 20 and marker.base_position.y <= max_y + 20:
-			marker.visible = true
-		else:
-			marker.visible = false
+func filter_markers() -> void:
+	for marker in marker_lines:
+		marker.reverse_animation()
 
 
 var pointA: Vector2 = Vector2(100, 100)
 var pointB: Vector2 = Vector2(100, 100)
 
 func set_points(target_offset: float, flash_duration: float, left_col: float, right_col: float, top_row: float, bottom_row: float, side: float):
-	print(side)
 	if side == 1 or side == 2:
 		var main = null
 		if side == 1:
 			main = left_col
 		else:
 			main = right_col
-		print("main ", main)
 		if main == 0:
-			print("left or right col is 0")
 			pointB = Vector2(450, 64)
 			pointA = Vector2(153, 307)
 			x_coords = [152, 174.5, 197, 219.5, 242,
@@ -84,7 +72,6 @@ func set_points(target_offset: float, flash_duration: float, left_col: float, ri
 					keep.append(coord)
 			return [pointA, pointB, x_coords, keep]
 		if main == 1:
-			print("left or right col is 1")
 			pointB = Vector2(514, 82)
 			pointA = Vector2(230, 334)
 			x_coords = [229, 312, 391, 453, 514]
@@ -94,7 +81,6 @@ func set_points(target_offset: float, flash_duration: float, left_col: float, ri
 					keep.append(coord)
 			return [pointA, pointB, x_coords, keep]
 		if main == 2:
-			print("left or right col is 2")
 
 			pointB = Vector2(613, 54)
 			pointA = Vector2(319, 369)
@@ -191,7 +177,6 @@ func set_points(target_offset: float, flash_duration: float, left_col: float, ri
 
 
 	if side == 3 or side == 4:
-		print(side)
 		var main = null
 		if side == 3:
 			main = top_row
