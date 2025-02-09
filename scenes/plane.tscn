@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkju37nbdorrh"]
 
 [ext_resource type="Script" path="res://scenes/plane.gd" id="1_itdxn"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_7o24k"]
+[ext_resource type="Texture2D" uid="uid://ib0cjw16i1l0" path="res://assets/airplane.png" id="2_7mb0d"]
 
 [node name="Plane" type="Node2D"]
 script = ExtResource("1_itdxn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(30, 30)
-texture = SubResource("CanvasTexture_7o24k")
+position = Vector2(-6, 0)
+rotation = 0.442207
+texture = ExtResource("2_7mb0d")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

@@ -52,7 +52,6 @@ scale = Vector2(0.1, 0.1)
 polygon = PackedVector2Array(-50, -9.53674e-07, -80, 30.0601, -120, 50.1002, -80, 70.1403, -20, 10.02, -20, -40.0802)
 
 [node name="cane_range" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cane_range"]

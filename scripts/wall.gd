@@ -83,33 +83,25 @@ func _ready() -> void:
 
 
 func get_relative_direction(point: Vector2) -> int:
-	# Calculate vector from the wall center to the collision point.
+	# Calculate the vector from this node's global position (center) to the given point.
 	var diff: Vector2 = point - global_position
-	# Compute the angle (in degrees) of the diff vector.
-	var angle_deg: float = rad_to_deg(atan2(diff.y, diff.x))
-	if angle_deg < 0:
-		angle_deg += 360  # Normalize angle to the range [0, 360)
+
+	# Using Godot's coordinate system:
+	# - A negative diff.y means the point is above this node.
+	# - A positive diff.y means the point is below.
+	# - A negative diff.x means the point is to the left.
+	# - A positive diff.x means the point is to the right.
 	
-	# Check each region based on the boundary angles:
-	# Region for "Right" (classification 2): between (8,2) and (6,-6).
-	# That is: angle >= 315° or angle < 14.036°.
-	if angle_deg >= 315 or angle_deg < 14.036:
-		top_status = 1
-		return 4
-		
-	# Region for "Top" (classification 4): between (8,2) and (-6,6) i.e., 14.036° to 135°.
-	elif angle_deg >= 14.036 and angle_deg < 135:
-		right_status = 1
-		return 2
-	# Region for "Left" (classification 1): between (-6,6) and (-8,-1) i.e., 135° to 187.125°.
-	elif angle_deg >= 135 and angle_deg < 187.125:
-		bottom_status = 1
-		return 3
-	# Region for "Bottom" (classification 3): between (-8,-1) and (6,-6) i.e., 187.125° to 315°.
-	elif angle_deg >= 187.125 and angle_deg < 315:
-		left_status = 1
-		return 1
-	return	 0  # Fallback (should not be reached if all cases are covered).
+	if diff.x >= 0:
+		if diff.y < 0:
+			return 4  # Top Right
+		else:
+			return 2  # Bottom Right
+	else:
+		if diff.y < 0:
+			return 1  # Top Left
+		else:
+			return 3  # Bottom Left
 
 
 func _on_cooldown_timer_timeout() -> void:

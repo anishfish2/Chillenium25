@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3qjt5x3kcjd8"]
+[gd_scene load_steps=10 format=3 uid="uid://dymkttgdvf4v8"]
 
-[ext_resource type="Script" path="res://scripts/tutorial_1.gd" id="1_mmmwh"]
+[ext_resource type="Script" path="res://scripts/tutorial_2.gd" id="1_3dn2l"]
 [ext_resource type="Texture2D" uid="uid://bnmnftf6tuurd" path="res://assets/tutorial.png" id="2_vkt6n"]
 [ext_resource type="PackedScene" uid="uid://clbkqy70au5wf" path="res://scenes/player.tscn" id="3_ppxrg"]
 [ext_resource type="PackedScene" uid="uid://cm74ua71htqoa" path="res://walls/front_wall.tscn" id="4_k7loi"]
@@ -48,7 +48,7 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(641, 320)
-script = ExtResource("1_mmmwh")
+script = ExtResource("1_3dn2l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

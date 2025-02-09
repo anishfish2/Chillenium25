@@ -1,16 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://xlpelt8j12lr"]
+[gd_scene load_steps=5 format=3 uid="uid://xlpelt8j12lr"]
 
+[ext_resource type="Script" path="res://scripts/level_2.gd" id="1_f14je"]
 [ext_resource type="Texture2D" uid="uid://d14u3fhhl43sj" path="res://assets/level2_BGC.png" id="1_pcike"]
 [ext_resource type="PackedScene" uid="uid://clbkqy70au5wf" path="res://scenes/player.tscn" id="2_gpwid"]
 [ext_resource type="PackedScene" uid="uid://y0dgjyl001g7" path="res://scenes/raising_planes.tscn" id="3_g8pry"]
 
-[node name="Level2" type="Node2D"]
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_f14je")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 320)
 texture = ExtResource("1_pcike")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_gpwid")]
+[node name="Player" parent="." instance=ExtResource("2_gpwid")]
 position = Vector2(285, 179)
 
 [node name="RaisingPlanes" parent="." instance=ExtResource("3_g8pry")]
