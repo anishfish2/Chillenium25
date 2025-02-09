@@ -29,6 +29,7 @@ func on_player_collide(collision_point: Vector2, collision_normal: Vector2) -> v
 	var direction = get_relative_direction(collision_point)
 	flash_wall()
 	$CooldownTimer.start()
+	print('sendign signal')
 	emit_signal("flash_triggered", 200.0, flash_duration, left_col, right_col, bottom_row, top_row, direction)
 
 func _process(delta: float) -> void:
@@ -78,7 +79,7 @@ func flash_wall() -> void:
 		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 func _ready() -> void:
-	add_to_group("wall")
+	add_to_group("walls")
 
 
 func get_relative_direction(point: Vector2) -> int:

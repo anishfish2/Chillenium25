@@ -8,13 +8,17 @@ var plane_out = false
 var allWallsStatus3 = true
 
 func _process(delta: float) -> void:
-
+	var won = true
 	# Iterate through all nodes in the "walls" group.
-	for wall in get_tree().get_nodes_in_group("wall"):
+	for wall in get_tree().get_nodes_in_group("walls"):
 		# Directly check the status property.
 		if wall.status != 3:
 			allWallsStatus3 = false
+			won = false
 			break
+		
+	if won:
+		print('you won!')
 
 func _physics_process(delta: float) -> void:
 	# Handle movement input.

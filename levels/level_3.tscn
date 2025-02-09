@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://oo0nkyscbui4"]
+
+[ext_resource type="Texture2D" uid="uid://d14u3fhhl43sj" path="res://assets/level2_BGC.png" id="1_2i3t2"]
+[ext_resource type="PackedScene" uid="uid://clbkqy70au5wf" path="res://scenes/player.tscn" id="2_33mog"]
+[ext_resource type="PackedScene" uid="uid://y0dgjyl001g7" path="res://scenes/raising_planes.tscn" id="3_4x6hp"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(640, 320)
+texture = ExtResource("1_2i3t2")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_33mog")]
+position = Vector2(285, 179)
+
+[node name="RaisingPlanes" parent="." instance=ExtResource("3_4x6hp")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(132, 259, 149, 456, 216, 432, 334, 527, 412, 528, 600, 461, 705, 515, 755, 466, 730, 389, 674, 329, 773, 335, 836, 318, 992, 386, 1063, 472, 1149, 377, 1168, 251, 1114, 177, 1064, 137, 1044, 85, 972, 48, 831, 45, 552, 50, 464, 36, 404, 36, 282, 95, 138, 254, 1, 188, 83, 0, 2002, 2, 2004, 994, 9, 999, -1, 201)

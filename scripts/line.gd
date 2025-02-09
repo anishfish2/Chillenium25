@@ -39,7 +39,7 @@ func reverse_animation() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "current_height", 0.0, duration) \
 		.set_trans(Tween.TRANS_LINEAR) \
-		.set_ease(Tween.EASE_IN_OUT)
+		.set_ease(Tween.EASE_OUT)
 	tween.connect("finished", Callable(self, "_on_reverse_tween_finished"))
 
 func _on_reverse_tween_finished() -> void:

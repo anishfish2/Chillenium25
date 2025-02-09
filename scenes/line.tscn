@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://scripts/line.gd" id="1_s6w6f"]
 
 [node name="Line" type="Node2D"]
+z_index = 11
 script = ExtResource("1_s6w6f")

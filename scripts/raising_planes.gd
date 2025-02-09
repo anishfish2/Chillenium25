@@ -19,7 +19,7 @@ func _on_wall_flash_triggered(target_offset: float, flash_duration: float, left_
 	var global_pointB = value[1]
 	var x_coords = value[2]
 	var keep = value[3]
-	
+	print('here')
 	var pointA = global_pointA
 	var pointB = global_pointB
 	for x_val in x_coords:
@@ -31,7 +31,7 @@ func _on_wall_flash_triggered(target_offset: float, flash_duration: float, left_
 		# Instance a MarkerLine node.
 		var marker = marker_scene.instantiate()
 		add_child(marker)
-
+		
 		marker.set_base_data(base_point, marker_target_height, marker_duration)
 		# Add the marker to the scene.
 		marker_lines.append(marker)
@@ -52,6 +52,7 @@ var pointA: Vector2 = Vector2(100, 100)
 var pointB: Vector2 = Vector2(100, 100)
 
 func set_points(target_offset: float, flash_duration: float, left_col: float, right_col: float, top_row: float, bottom_row: float, side: float):
+	print(left_col, " ", right_col, " ", bottom_row, " ", top_row)
 	if side == 1 or side == 2:
 		var main = null
 		if side == 1:

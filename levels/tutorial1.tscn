@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwfw57oyx5u78"]
+
+[ext_resource type="Script" path="res://scripts/tutorial_1.gd" id="1_cmlib"]
+[ext_resource type="Texture2D" uid="uid://bnmnftf6tuurd" path="res://assets/tutorial.png" id="1_lla8e"]
+[ext_resource type="PackedScene" uid="uid://clbkqy70au5wf" path="res://scenes/player.tscn" id="2_feymx"]
+[ext_resource type="PackedScene" uid="uid://cm74ua71htqoa" path="res://walls/front_wall.tscn" id="3_jxtwi"]
+[ext_resource type="PackedScene" uid="uid://y0dgjyl001g7" path="res://scenes/raising_planes.tscn" id="4_tktj7"]
+[ext_resource type="PackedScene" uid="uid://cdq4auyie0gxk" path="res://walls/back_wall.tscn" id="6_d0g5g"]
+
+[sub_resource type="Animation" id="Animation_7ewln"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 1.53333, 3.1, 4.66667, 6.23333, 7.8, 9.36667, 10.7333, 12.3, 13.8667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 8, 8, 8]
+}
+
+[sub_resource type="Animation" id="Animation_8x7xv"]
+resource_name = "tutorial_bg"
+length = 15.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.56667, 3.16667, 4.73333, 6.36667, 7.96667, 9.53333, 11.1, 12.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1bwam"]
+_data = {
+"RESET": SubResource("Animation_7ewln"),
+"tutorial_bg": SubResource("Animation_8x7xv")
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(641, 320)
+script = ExtResource("1_cmlib")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1bwam")
+}
+speed_scale = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lla8e")
+hframes = 9
+
+[node name="Player" parent="." instance=ExtResource("2_feymx")]
+position = Vector2(-283, -57)
+
+[node name="Wall" parent="." groups=["walls"] instance=ExtResource("3_jxtwi")]
+position = Vector2(103, -58)
+rotation = 1.80049
+scale = Vector2(10.4542, 10.982)
+left_col = 5.0
+right_col = 6.0
+bottom_row = 2.0
+top_row = 4.0
+
+[node name="RaisingPlanes" parent="." instance=ExtResource("4_tktj7")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-213, -319, -164, -193, -285, -104, -385, -48, -283, -20, -243, 84, 98, 232, 182, 94, 343, 142, 373, 68, 232, 15, 286, -66, -164, -192, -213, -320, 641, -319, 639, 320, -636, 320, -636, -316)
+
+[node name="Wall2" parent="." instance=ExtResource("6_d0g5g")]
+position = Vector2(-93, 27)

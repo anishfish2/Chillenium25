@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cm74ua71htqoa"]
 
-[ext_resource type="Script" path="res://scripts/wall.gd" id="1_p0up6"]
-[ext_resource type="Texture2D" uid="uid://bx60gix36my3l" path="res://assets/wireframe-draft.png" id="2_ef8rx"]
-[ext_resource type="Texture2D" uid="uid://by6g8hciw3vj4" path="res://assets/front sprite sheet.png" id="3_xlm2f"]
-[ext_resource type="Texture2D" uid="uid://1a4ok6ygaqf6" path="res://assets/wall.png" id="4_bwqpa"]
+[ext_resource type="Script" path="res://scripts/wall.gd" id="1_8a40k"]
+[ext_resource type="Texture2D" uid="uid://cblip0p3q8udu" path="res://assets/front.1.png" id="2_3efox"]
+[ext_resource type="Texture2D" uid="uid://ck6x0uk6xne57" path="res://assets/front.2.png" id="3_v50ty"]
+[ext_resource type="Texture2D" uid="uid://bkgjjdrchxusu" path="res://assets/front.3.png" id="4_wauax"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fqsl3"]
 animations = [{
@@ -12,13 +12,13 @@ animations = [{
 "texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_ef8rx")
+"texture": ExtResource("2_3efox")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_xlm2f")
+"texture": ExtResource("3_v50ty")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_bwqpa")
+"texture": ExtResource("4_wauax")
 }],
 "loop": true,
 "name": &"default",
@@ -29,34 +29,34 @@ animations = [{
 z_index = 3
 scale = Vector2(1, 0.99831)
 input_pickable = true
-script = ExtResource("1_p0up6")
+script = ExtResource("1_8a40k")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
+position = Vector2(-1, 2.00339)
 scale = Vector2(0.1, 0.1)
-polygon = PackedVector2Array(-70, -60.1016, -90, -50.0846, -90, -20.0339, 80, 30.0508, 100, 10.0169, 90, -10.0169)
+polygon = PackedVector2Array(-60, -70.1185, -80, -60.1016, -80, 1.90735e-06, 50, 40.0677, 80, 1.90735e-06, 80, -40.0677)
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -3.00508)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_fqsl3")
 frame = 3
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-1, 0)
 scale = Vector2(0.1, 0.1)
-polygon = PackedVector2Array(-46, -53.0897, -79, -37.0626, -78, 14.0237, 53, 58.0982, 79, 30.0508, 77, -15.0254)
+polygon = PackedVector2Array(-60, -30.0508, -79, -37.0626, -78, 14.0237, 53, 58.0982, 70, 30.0508, 30, 10.0169)
 
 [node name="cane_range" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cane_range"]
-visible = false
+position = Vector2(-2.38419e-07, -1.00169)
 polygon = PackedVector2Array(-11, -5.00846, -4, -8.01354, 10, -3.00508, 10, 3.00508, 5, 9.01523, -11, 3.00508)
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
