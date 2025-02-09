@@ -35,13 +35,14 @@ func on_player_collide(collision_point: Vector2, collision_normal: Vector2) -> v
 func _process(delta: float) -> void:
 	$AnimatedSprite2D.frame = status
 	if is_touching and Input.is_action_just_pressed("ui_select"):
-		status += 1
-		if status == 1:
-			$CaneLv1.play()
-		if status == 2:
-			$CaneLv2.play()
-		if status == 3:
-			$CaneLv3.play()
+		if status < 3:
+			status += 1
+			if status == 1:
+				$CaneLv1.play()
+			if status == 2:
+				$CaneLv2.play()
+			if status == 3:
+				$CaneLv3.play()
 			
 	
 	if is_touching:
@@ -62,7 +63,8 @@ func _process(delta: float) -> void:
 			if planes_raising:
 				planes_raising.filter_markers()
 			print("upgraded")
-			status = 1
+			if status < 3:
+				status = 1
 		
 func get_min_player_y(animated_sprite: AnimatedSprite2D):
 	var frameIndex: int = $AnimatedSprite2D.get_frame()

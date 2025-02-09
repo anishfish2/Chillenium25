@@ -34,15 +34,30 @@ visible = false
 position = Vector2(569, -109)
 texture = ExtResource("6_3blj4")
 
-[node name="Wall3" parent="." instance=ExtResource("6_bf5c0")]
-position = Vector2(10, -117)
+[node name="Wall" parent="." groups=["walls"] instance=ExtResource("6_kbvlm")]
+position = Vector2(-2, -195)
+left_col = 2.0
+right_col = 5.0
+bottom_row = 3.0
+top_row = 4.0
 
-[node name="Wall" parent="." instance=ExtResource("6_kbvlm")]
-position = Vector2(18, -138)
+[node name="Wall3" parent="." groups=["walls"] instance=ExtResource("6_bf5c0")]
+position = Vector2(-147, -132)
+left_col = 2.0
+right_col = 3.0
+bottom_row = 2.0
+top_row = 4.0
 
-[node name="Wall2" parent="." instance=ExtResource("7_c3xd4")]
-position = Vector2(-104, 58)
+[node name="Wall4" parent="." groups=["walls"] instance=ExtResource("9_n6vra")]
+position = Vector2(-3, -87)
+rotation = -0.0315439
+left_col = 4.0
+right_col = 5.0
+bottom_row = 2.0
+top_row = 4.0
 
-[node name="Wall4" parent="." instance=ExtResource("9_n6vra")]
-position = Vector2(86, -107)
-rotation = -0.181794
+[node name="Wall2" parent="." groups=["walls"] instance=ExtResource("7_c3xd4")]
+position = Vector2(-135, 58)
+left_col = 3.0
+right_col = 6.0
+top_row = 2.0

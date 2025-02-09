@@ -11,6 +11,7 @@ func _process(delta: float) -> void:
 	var won = true
 	# Iterate through all nodes in the "walls" group.
 	for wall in get_tree().get_nodes_in_group("walls"):
+		print(len(get_tree().get_nodes_in_group("walls")))
 		# Directly check the status property.
 		if wall.status != 3:
 			allWallsStatus3 = false

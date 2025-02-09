@@ -37,7 +37,7 @@ script = ExtResource("1_raa7t")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
-position = Vector2(6, 2.00339)
+position = Vector2(2.06667, -0.801603)
 rotation = -1.09109
 scale = Vector2(0.1, 0.1)
 polygon = PackedVector2Array(-59.3092, -70.5959, -90, -50.0846, -94.1665, -7.37271, 4.95918, 31.2369, 58.2772, 3.49902, 53.318, -27.7379)
@@ -46,15 +46,16 @@ polygon = PackedVector2Array(-59.3092, -70.5959, -90, -50.0846, -94.1665, -7.372
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, 3.00508)
+position = Vector2(0.333333, 0.334002)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_fqsl3")
+frame = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(7, 2.00339)
+position = Vector2(2.66667, -0.534402)
 scale = Vector2(0.1, 0.1)
 polygon = PackedVector2Array(1.90735e-06, -60.1016, -90, 20.0339, -90, 60.1016, -60, 80.1354, 30, -9.53674e-07)
 
@@ -63,7 +64,7 @@ visible = false
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cane_range"]
-position = Vector2(9, -2.38822e-07)
+position = Vector2(5.26667, -2.73881)
 polygon = PackedVector2Array(-13, 1.00169, -15, 11.0186, -7, 13.022, 3, 4.00677, 2, -5.00846, -4, -7.01185)
 
 [node name="CaneLv2" type="AudioStreamPlayer" parent="."]

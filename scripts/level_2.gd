@@ -4,7 +4,7 @@ extends Node2D
 
 # A flag to ensure we only transition once.
 var transitioned: bool = false
-var next_scene = preload("res://levels/tutorial3.tscn").instantiate()
+var next_scene = preload("res://levels/level_3.tscn").instantiate()
 
 
 

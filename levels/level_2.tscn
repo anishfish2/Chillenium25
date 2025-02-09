@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://xlpelt8j12lr"]
+[gd_scene load_steps=10 format=3 uid="uid://xlpelt8j12lr"]
 
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_f14je"]
 [ext_resource type="Texture2D" uid="uid://d14u3fhhl43sj" path="res://assets/level2_BGC.png" id="1_pcike"]
 [ext_resource type="PackedScene" uid="uid://clbkqy70au5wf" path="res://scenes/player.tscn" id="2_gpwid"]
 [ext_resource type="PackedScene" uid="uid://y0dgjyl001g7" path="res://scenes/raising_planes.tscn" id="3_g8pry"]
 [ext_resource type="Texture2D" uid="uid://dro5fdk7x76p1" path="res://assets/door.png" id="5_22qap"]
+[ext_resource type="PackedScene" uid="uid://cdq4auyie0gxk" path="res://walls/back_wall.tscn" id="6_mi6ng"]
+[ext_resource type="PackedScene" uid="uid://b1a3ijjyeoh5b" path="res://walls/right_wall.tscn" id="7_i14pb"]
+[ext_resource type="PackedScene" uid="uid://cm74ua71htqoa" path="res://walls/front_wall.tscn" id="8_6s4yq"]
+[ext_resource type="PackedScene" uid="uid://cgnk5bnn3ycuy" path="res://walls/left_wall.tscn" id="9_106de"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_f14je")
@@ -27,3 +31,51 @@ polygon = PackedVector2Array(132, 259, 149, 456, 216, 432, 334, 527, 412, 528, 6
 visible = false
 position = Vector2(1075, 357)
 texture = ExtResource("5_22qap")
+
+[node name="Wall" parent="." groups=["walls"] instance=ExtResource("6_mi6ng")]
+position = Vector2(857, 50)
+rotation = -0.0995451
+left_col = 5.0
+right_col = 8.0
+bottom_row = 7.0
+
+[node name="Wall4" parent="." groups=["walls"] instance=ExtResource("7_i14pb")]
+position = Vector2(901, 110)
+rotation = -0.080891
+left_col = 7.0
+right_col = 8.0
+bottom_row = 5.0
+
+[node name="Wall2" parent="." groups=["walls"] instance=ExtResource("8_6s4yq")]
+position = Vector2(768, 145)
+rotation = -0.0798999
+left_col = 5.0
+right_col = 8.0
+bottom_row = 5.0
+top_row = 6.0
+
+[node name="Wall3" parent="." groups=["walls"] instance=ExtResource("9_106de")]
+position = Vector2(666, 184)
+left_col = 5.0
+right_col = 6.0
+bottom_row = 4.0
+top_row = 6.0
+
+[node name="Wall5" parent="." groups=["walls"] instance=ExtResource("9_106de")]
+position = Vector2(286, 322)
+left_col = 2.0
+right_col = 3.0
+top_row = 3.0
+
+[node name="Wall6" parent="." groups=["walls"] instance=ExtResource("8_6s4yq")]
+position = Vector2(591, 390)
+left_col = 5.0
+right_col = 8.0
+bottom_row = 2.0
+top_row = 3.0
+
+[node name="Wall7" parent="." groups=["walls"] instance=ExtResource("8_6s4yq")]
+position = Vector2(468, 158)
+right_col = 4.0
+bottom_row = 4.0
+top_row = 5.0

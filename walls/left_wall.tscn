@@ -39,15 +39,16 @@ script = ExtResource("1_0msc5")
 visible = false
 position = Vector2(4.93333, 0.334001)
 scale = Vector2(0.1, 0.1)
-polygon = PackedVector2Array(-40, -90.1804, -120, -10.02, -120, 40.0802, -50, 60.1202, 0, -20.0401, 10, -70.1403)
+polygon = PackedVector2Array(-34.6667, -80.8283, -119.333, 4.00802, -121.333, 54.7762, -82, 63.4602, 4.66667, -20.0401, 2, -70.1403)
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.133333, -0.400802)
+position = Vector2(0.133333, -0.0668003)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_fqsl3")
+frame = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
@@ -55,7 +56,7 @@ visible = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2(5.8, 0.200401)
 scale = Vector2(0.1, 0.1)
-polygon = PackedVector2Array(-20, -70.1403, -90, -20.0401, -130, 20.04, -100, 60.1202, -40, -4.00543e-05, -10, -40.0802)
+polygon = PackedVector2Array(-20, -70.1403, -68, -12.692, -122, 52.7722, -88.6667, 62.1242, -28, 2.67201, -4.66667, -21.3761)
 
 [node name="cane_range" type="Area2D" parent="."]
 visible = false

@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://clbkqy70au5wf" path="res://scenes/player.tscn" id="3_ppxrg"]
 [ext_resource type="PackedScene" uid="uid://cm74ua71htqoa" path="res://walls/front_wall.tscn" id="4_k7loi"]
 [ext_resource type="PackedScene" uid="uid://y0dgjyl001g7" path="res://scenes/raising_planes.tscn" id="5_0dbii"]
-[ext_resource type="PackedScene" uid="uid://cdq4auyie0gxk" path="res://walls/back_wall.tscn" id="6_plfl5"]
 [ext_resource type="Texture2D" uid="uid://dro5fdk7x76p1" path="res://assets/door.png" id="7_lvuba"]
+[ext_resource type="Texture2D" uid="uid://b8lesp5lhve1a" path="res://assets/text 2 (2).png" id="7_vy866"]
 
 [sub_resource type="Animation" id="Animation_7ewln"]
 length = 0.001
@@ -64,26 +64,27 @@ hframes = 9
 [node name="Player" parent="." instance=ExtResource("3_ppxrg")]
 position = Vector2(-283, -57)
 
-[node name="Wall" parent="." groups=["walls"] instance=ExtResource("4_k7loi")]
-position = Vector2(103, -58)
-rotation = 1.80049
-scale = Vector2(10.4542, 10.982)
-left_col = 5.0
-right_col = 6.0
-bottom_row = 2.0
-top_row = 4.0
-
 [node name="RaisingPlanes" parent="." instance=ExtResource("5_0dbii")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
 polygon = PackedVector2Array(-213, -319, -164, -193, -285, -104, -385, -48, -283, -20, -243, 84, 98, 232, 182, 94, 343, 142, 373, 68, 232, 15, 286, -66, -164, -192, -213, -320, 641, -319, 639, 320, -636, 320, -636, -316)
-
-[node name="Wall2" parent="." instance=ExtResource("6_plfl5")]
-position = Vector2(-93, 27)
 
 [node name="door" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(358, 43)
 texture = ExtResource("7_lvuba")
+
+[node name="Wall2" parent="." groups=["walls"] instance=ExtResource("4_k7loi")]
+position = Vector2(-77, -156)
+left_col = 5.0
+right_col = 6.0
+bottom_row = 4.0
+top_row = 5.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-310.5, 255.25)
+scale = Vector2(0.692192, 0.716374)
+texture = ExtResource("7_vy866")
