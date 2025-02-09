@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkju37nbdorrh"]
+
+[ext_resource type="Script" path="res://scenes/plane.gd" id="1_itdxn"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7o24k"]
+
+[node name="Plane" type="Node2D"]
+script = ExtResource("1_itdxn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(30, 30)
+texture = SubResource("CanvasTexture_7o24k")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="PLANEcollision" type="Area2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PLANEcollision"]
+polygon = PackedVector2Array(15, 0, 48, -15, 56, 0, 48, 17)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

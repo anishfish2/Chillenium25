@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmoirlmgbn0ox"]
+
+[ext_resource type="PackedScene" uid="uid://clbkqy70au5wf" path="res://scenes/player.tscn" id="1_gwb56"]
+[ext_resource type="PackedScene" uid="uid://cm74ua71htqoa" path="res://scenes/Wall.tscn" id="2_q2abo"]
+[ext_resource type="Texture2D" uid="uid://dwoku2i5pip0s" path="res://assets/level one background.png" id="3_c528c"]
+[ext_resource type="PackedScene" uid="uid://y0dgjyl001g7" path="res://scenes/raising_planes.tscn" id="3_geujv"]
+[ext_resource type="Texture2D" uid="uid://1a4ok6ygaqf6" path="res://assets/wall.png" id="5_f5xxx"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(641, 321)
+
+[node name="Player" parent="." instance=ExtResource("1_gwb56")]
+z_index = 7
+position = Vector2(-465, -188)
+scale = Vector2(1.00904, 1)
+
+[node name="Wall" parent="." groups=["walls"] instance=ExtResource("2_q2abo")]
+z_index = 1
+position = Vector2(-278, -181)
+scale = Vector2(6.56, 3.67831)
+left_col = 0.0
+
+[node name="Wall2" parent="." groups=["walls"] instance=ExtResource("2_q2abo")]
+position = Vector2(-192, 39)
+scale = Vector2(6.56, 3.67831)
+
+[node name="Wall3" parent="." groups=["walls"] instance=ExtResource("2_q2abo")]
+position = Vector2(12, -90)
+scale = Vector2(6.56, 3.67831)
+
+[node name="LevelOneBackground" type="Sprite2D" parent="."]
+texture = ExtResource("3_c528c")
+
+[node name="RaisingPlanes" parent="." instance=ExtResource("3_geujv")]
+
+[node name="Wall4" type="Sprite2D" parent="."]
+position = Vector2(-530, -129)
+rotation = 0.0224092
+texture = ExtResource("5_f5xxx")
