@@ -52,7 +52,7 @@ var pointA: Vector2 = Vector2(100, 100)
 var pointB: Vector2 = Vector2(100, 100)
 
 func set_points(target_offset: float, flash_duration: float, left_col: float, right_col: float, top_row: float, bottom_row: float, side: float):
-	print(left_col, " ", right_col, " ", bottom_row, " ", top_row)
+	print(left_col, " ", right_col, " ", bottom_row, " ", top_row, side)
 	if side == 1 or side == 2:
 		var main = null
 		if side == 1:

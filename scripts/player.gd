@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 			break
 		
 	if won:
+		get_node('/root/Node2D/door').visible = true
 		print('you won!')
 
 func _physics_process(delta: float) -> void:

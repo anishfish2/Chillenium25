@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cgnk5bnn3ycuy"]
 
 [ext_resource type="Script" path="res://scripts/wall.gd" id="1_0msc5"]
-[ext_resource type="Texture2D" uid="uid://cjb4hh8gl6ekd" path="res://assets/left.1.png" id="2_fi2qy"]
-[ext_resource type="Texture2D" uid="uid://cd6xjfxiohxa3" path="res://assets/left.2.png" id="3_wcg05"]
-[ext_resource type="Texture2D" uid="uid://ro6o1mx2qdea" path="res://assets/left.3.png" id="4_md3qm"]
+[ext_resource type="Texture2D" uid="uid://tebjcxyjcwnq" path="res://assets/left.1.png" id="2_fi2qy"]
+[ext_resource type="Texture2D" uid="uid://cuamisows1sps" path="res://assets/left.2.png" id="3_wcg05"]
+[ext_resource type="Texture2D" uid="uid://bfpk2iqee2jco" path="res://assets/left.3.png" id="4_md3qm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fqsl3"]
 animations = [{
@@ -27,6 +27,7 @@ animations = [{
 
 [node name="Wall" type="StaticBody2D"]
 z_index = 3
+position = Vector2(6, 0)
 scale = Vector2(1, 0.998)
 input_pickable = true
 script = ExtResource("1_0msc5")
@@ -39,7 +40,7 @@ polygon = PackedVector2Array(-60, -70.1403, -120, -10.02, -120, 40.0802, -80, 60
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5.96046e-08, 0)
+position = Vector2(-5, -1.002)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_fqsl3")
 frame = 3

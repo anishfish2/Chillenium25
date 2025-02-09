@@ -84,8 +84,10 @@ func _ready() -> void:
 
 func get_relative_direction(point: Vector2) -> int:
 	# Calculate the vector from this node's global position (center) to the given point.
-	var diff: Vector2 = point - global_position
-
+	var diff: Vector2 = get_node("/root/Node2D/Player").global_position - global_position
+	print("point", point)
+	print("global_position", global_position)
+	print("diff", diff)
 	# Using Godot's coordinate system:
 	# - A negative diff.y means the point is above this node.
 	# - A positive diff.y means the point is below.
@@ -94,13 +96,17 @@ func get_relative_direction(point: Vector2) -> int:
 	
 	if diff.x >= 0:
 		if diff.y < 0:
+			top_status = 1
 			return 4  # Top Right
 		else:
+			right_status = 1
 			return 2  # Bottom Right
 	else:
 		if diff.y < 0:
+			left_status = 1
 			return 1  # Top Left
 		else:
+			bottom_status = 1
 			return 3  # Bottom Left
 
 

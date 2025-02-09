@@ -12,3 +12,6 @@ func _process(delta: float) -> void:
 	if not transitioned and player.global_position.x > threshold_x:
 		transitioned = true  
 		get_tree().change_scene_to_file("res://levels/tutorial2.tscn")
+		
+	if Input.is_action_just_pressed("ui_restart"):
+		get_tree().reload_current_scene()

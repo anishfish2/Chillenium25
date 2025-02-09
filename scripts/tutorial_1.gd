@@ -11,3 +11,6 @@ func _process(delta: float) -> void:
 
 	if player.global_position.x > threshold_x:
 		get_tree().change_scene_to_file("res://levels/level_1.tscn")
+		
+	if Input.is_action_just_pressed("ui_restart"):
+		get_tree().reload_current_scene()

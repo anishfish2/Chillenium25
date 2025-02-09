@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dymkttgdvf4v8"]
+[gd_scene load_steps=11 format=3 uid="uid://dymkttgdvf4v8"]
 
 [ext_resource type="Script" path="res://scripts/tutorial_2.gd" id="1_3dn2l"]
 [ext_resource type="Texture2D" uid="uid://bnmnftf6tuurd" path="res://assets/tutorial.png" id="2_vkt6n"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cm74ua71htqoa" path="res://walls/front_wall.tscn" id="4_k7loi"]
 [ext_resource type="PackedScene" uid="uid://y0dgjyl001g7" path="res://scenes/raising_planes.tscn" id="5_0dbii"]
 [ext_resource type="PackedScene" uid="uid://cdq4auyie0gxk" path="res://walls/back_wall.tscn" id="6_plfl5"]
+[ext_resource type="Texture2D" uid="uid://dro5fdk7x76p1" path="res://assets/door.png" id="7_lvuba"]
 
 [sub_resource type="Animation" id="Animation_7ewln"]
 length = 0.001
@@ -81,3 +82,8 @@ polygon = PackedVector2Array(-213, -319, -164, -193, -285, -104, -385, -48, -283
 
 [node name="Wall2" parent="." instance=ExtResource("6_plfl5")]
 position = Vector2(-93, 27)
+
+[node name="door" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(358, 43)
+texture = ExtResource("7_lvuba")

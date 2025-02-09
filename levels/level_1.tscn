@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmoirlmgbn0ox"]
+[gd_scene load_steps=7 format=3 uid="uid://bmoirlmgbn0ox"]
 
 [ext_resource type="PackedScene" uid="uid://clbkqy70au5wf" path="res://scenes/player.tscn" id="1_7y7k0"]
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_nxgka"]
 [ext_resource type="Texture2D" uid="uid://dk672ik51v1uq" path="res://assets/level1_BG.png" id="3_kao6g"]
 [ext_resource type="PackedScene" uid="uid://y0dgjyl001g7" path="res://scenes/raising_planes.tscn" id="4_kme5h"]
+[ext_resource type="Texture2D" uid="uid://dro5fdk7x76p1" path="res://assets/door.png" id="6_3blj4"]
 [ext_resource type="PackedScene" uid="uid://cgnk5bnn3ycuy" path="res://walls/left_wall.tscn" id="6_bf5c0"]
 
 [node name="Node2D" type="Node2D"]
@@ -34,3 +35,8 @@ left_col = 3.0
 right_col = 4.0
 bottom_row = 3.0
 top_row = 4.0
+
+[node name="door" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(569, -109)
+texture = ExtResource("6_3blj4")
