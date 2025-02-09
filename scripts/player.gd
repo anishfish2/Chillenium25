@@ -88,9 +88,7 @@ func _physics_process(delta: float) -> void:
 			$right.visible = false
 		# Play the determined animation.
 		$AnimationPlayer.play(animation_name)
-	else:
-		# If no movement, you can play an idle animation.
-		$AnimationPlayer.play("[stop]")
+
 		
 	# Process collisions (if you need to interact with walls on collision)
 	for i in range(get_slide_collision_count()):

@@ -27,10 +27,9 @@ func on_player_collide(collision_point: Vector2, collision_normal: Vector2) -> v
 		return  # Exit if we're still in cooldown.
 	can_register_hit = false
 	var direction = get_relative_direction(collision_point)
-
+	print('got here asdf')
 	flash_wall()
 	$CooldownTimer.start()
-
 	emit_signal("flash_triggered", 200.0, flash_duration, left_col, right_col, bottom_row, top_row, direction)
 
 func _process(delta: float) -> void:
@@ -50,6 +49,12 @@ func _process(delta: float) -> void:
 				self.z_index = 10
 			else:
 				self.z_index = 3
+				
+		if right_status + left_status + bottom_status + top_status == 4 and status < 2:
+			var planes_raising = get_parent().get_node("RaisingPlanes")
+			#if planes_raising:
+				#planes_raising.filter_markers()
+			status = 1
 		
 func get_min_player_y(animated_sprite: AnimatedSprite2D):
 	var frameIndex: int = $AnimatedSprite2D.get_frame()
@@ -75,21 +80,27 @@ func flash_wall() -> void:
 func _ready() -> void:
 	add_to_group("wall")
 
-func get_relative_direction(point: Vector2) -> float:
-	var diff: Vector2 = point - global_position  # Compute the vector from the wall center to the point.
-	# Compare the absolute differences to decide which axis is dominant.
-	if abs(diff.x) > abs(diff.y):
-		# Horizontal component is dominant.
-		if diff.x < 0:
-			return 1 #left
-		else:
-			return 2 #right
-	else:
-		# Vertical component is dominant.
+
+func get_relative_direction(point: Vector2) -> int:
+	var diff: Vector2 = point - global_position  # Calculate vector from wall center to collision point.
+
+	# Check the horizontal direction.
+	if diff.x < 0:
+		# The collision point is to the left of the wall.
 		if diff.y < 0:
-			return 3 #above
+			left_status = 1
+			return 1  # Top Left
 		else:
-			return 4 #below
+			bottom_status = 1
+			return 3 # Bottom Left
+	else:
+		# The collision point is to the right of the wall.
+		if diff.y < 0:
+			top_status = 1
+			return 4 # Top Right
+		else:
+			right_status = 1
+			return 2  # Bottom Right
 
 
 func _on_cooldown_timer_timeout() -> void:
