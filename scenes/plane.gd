@@ -7,6 +7,8 @@ const velocity = 4
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Timer.start()
+	$Go.play()
+	$Done.play()
 	pass # Replace with function body.
 
 
@@ -30,4 +32,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	get_parent().get_node("Player").plane_out = false
+	$Done.play()
+	$Done.reparent(get_parent())
 	queue_free()

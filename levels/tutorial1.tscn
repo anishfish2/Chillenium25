@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bwfw57oyx5u78"]
+[gd_scene load_steps=17 format=3 uid="uid://bwfw57oyx5u78"]
 
 [ext_resource type="Script" path="res://scripts/tutorial_1.gd" id="1_cmlib"]
 [ext_resource type="Texture2D" uid="uid://bnmnftf6tuurd" path="res://assets/tutorial.png" id="1_lla8e"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://chw5ew4h6rxad" path="res://assets/tutorialone_A.png" id="7_v7pbs"]
 [ext_resource type="Texture2D" uid="uid://cm4cdo1jm2uf3" path="res://assets/tutorialone_B.png" id="8_ni1dt"]
 [ext_resource type="Texture2D" uid="uid://c147t8v80uy32" path="res://assets/A.png" id="9_h1b00"]
+[ext_resource type="AudioStream" uid="uid://bnxqb62wg7b0e" path="res://sound/without.mp3" id="10_blpvn"]
+[ext_resource type="AudioStream" uid="uid://c102fc4jmfkrs" path="res://sound/win.mp3" id="11_1udyj"]
+[ext_resource type="AudioStream" uid="uid://bmtcajllhvpy1" path="res://sound/restart.mp3" id="12_6c1a7"]
 
 [sub_resource type="Animation" id="Animation_7ewln"]
 length = 0.001
@@ -110,3 +113,12 @@ scale = Vector2(0.790936, 0.790936)
 sprite_frames = SubResource("SpriteFrames_71m2u")
 frame_progress = 0.418203
 speed_scale = 0.2
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_blpvn")
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_1udyj")
+
+[node name="Restart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_6c1a7")

@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdq4auyie0gxk"]
+[gd_scene load_steps=9 format=3 uid="uid://cdq4auyie0gxk"]
 
 [ext_resource type="Script" path="res://scripts/wall.gd" id="1_7gy2q"]
 [ext_resource type="Texture2D" uid="uid://d0vtc25lpmsap" path="res://assets/back.1.png" id="2_4ydby"]
 [ext_resource type="Texture2D" uid="uid://y2k0gx05p4s5" path="res://assets/back.2.png" id="3_okmf4"]
 [ext_resource type="Texture2D" uid="uid://dtevamwqrflvn" path="res://assets/back.3.png" id="4_go4on"]
+[ext_resource type="AudioStream" uid="uid://h7rqyrde2al4" path="res://sound/cane_lv1.mp3" id="5_1gx40"]
+[ext_resource type="AudioStream" uid="uid://cf28gorjfg1dn" path="res://sound/cane_lv2.mp3" id="6_ylhpd"]
+[ext_resource type="AudioStream" uid="uid://8iabfodjoxbb" path="res://sound/cane_lv3.mp3" id="7_bsgjx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fqsl3"]
 animations = [{
@@ -61,6 +64,15 @@ collision_layer = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cane_range"]
 position = Vector2(3, -2.00339)
 polygon = PackedVector2Array(-11, -5.00846, -4, -8.01354, 10, -3.00508, 10, 3.00508, 5, 9.01523, -11, 3.00508)
+
+[node name="CaneLv1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1gx40")
+
+[node name="CaneLv2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ylhpd")
+
+[node name="CaneLv3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_bsgjx")
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -10,6 +10,12 @@ func _ready():
 	ani.play("tutorial_bg")
 	$AnimatedSprite2D.play()
 	
+	if not get_node("/root").has_node("Music"):
+		$Music.play()
+		$Music.reparent(get_node("/root"))
+		$WinSound.reparent(get_node("/root"))
+		$Restart.reparent(get_node("/root"))
+	
 func _process(delta: float) -> void:
 	var player = $Player 
 	var won = true
@@ -19,7 +25,9 @@ func _process(delta: float) -> void:
 			won = false
 			
 	if player.global_position.x > threshold_x and won:
+		get_node("/root/WinSound").play()
 		get_tree().change_scene_to_file("res://levels/level_1.tscn")
 		
 	if Input.is_action_just_pressed("ui_restart"):
+		get_node("/root/Restart").play()
 		get_tree().reload_current_scene()

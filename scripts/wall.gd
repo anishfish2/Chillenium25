@@ -36,6 +36,13 @@ func _process(delta: float) -> void:
 	$AnimatedSprite2D.frame = status
 	if is_touching and Input.is_action_just_pressed("ui_select"):
 		status += 1
+		if status == 1:
+			$CaneLv1.play()
+		if status == 2:
+			$CaneLv2.play()
+		if status == 3:
+			$CaneLv3.play()
+			
 	
 	if is_touching:
 		

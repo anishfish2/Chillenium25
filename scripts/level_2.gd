@@ -13,4 +13,9 @@ func _process(delta: float) -> void:
 	var player = $Player 
 	
 	if player.global_position.x > threshold_x and player.global_position.y > threshold_y:
+		get_node("/root/WinSound").play()
 		get_tree().change_scene_to_file("res://levels/tutorial3.tscn")
+	
+	if Input.is_action_just_pressed("ui_restart"):
+		get_node("/root/Restart").play()
+		get_tree().reload_current_scene()

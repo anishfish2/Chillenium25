@@ -11,6 +11,7 @@ func _process(delta: float) -> void:
 	var player = $Player 
 	if not transitioned and player.global_position.x > threshold_x:
 		transitioned = true  
+		get_node("/root/WinSound").play()
 		get_tree().change_scene_to_file("res://levels/tutorial2.tscn")
 		
 	if Input.is_action_just_pressed("ui_restart"):
