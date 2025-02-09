@@ -84,7 +84,7 @@ func _ready() -> void:
 
 func get_relative_direction(point: Vector2) -> int:
 	# Calculate the vector from this node's global position (center) to the given point.
-	var diff: Vector2 = get_node("/root/Node2D/Player").global_position - global_position
+	var diff: Vector2 = get_node("/root/Node2D/Player").position - position
 	print("point", point)
 	print("global_position", global_position)
 	print("diff", diff)

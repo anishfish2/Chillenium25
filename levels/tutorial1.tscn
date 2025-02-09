@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwfw57oyx5u78"]
+[gd_scene load_steps=14 format=3 uid="uid://bwfw57oyx5u78"]
 
 [ext_resource type="Script" path="res://scripts/tutorial_1.gd" id="1_cmlib"]
 [ext_resource type="Texture2D" uid="uid://bnmnftf6tuurd" path="res://assets/tutorial.png" id="1_lla8e"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cm74ua71htqoa" path="res://walls/front_wall.tscn" id="3_jxtwi"]
 [ext_resource type="PackedScene" uid="uid://y0dgjyl001g7" path="res://scenes/raising_planes.tscn" id="4_tktj7"]
 [ext_resource type="Texture2D" uid="uid://dro5fdk7x76p1" path="res://assets/door.png" id="7_4mco7"]
+[ext_resource type="Texture2D" uid="uid://chw5ew4h6rxad" path="res://assets/tutorialone_A.png" id="7_v7pbs"]
+[ext_resource type="Texture2D" uid="uid://cm4cdo1jm2uf3" path="res://assets/tutorialone_B.png" id="8_ni1dt"]
+[ext_resource type="Texture2D" uid="uid://c147t8v80uy32" path="res://assets/A.png" id="9_h1b00"]
 
 [sub_resource type="Animation" id="Animation_7ewln"]
 length = 0.001
@@ -46,6 +49,23 @@ _data = {
 "tutorial_bg": SubResource("Animation_8x7xv")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_71m2u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_v7pbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ni1dt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h1b00")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(641, 320)
 script = ExtResource("1_cmlib")
@@ -64,9 +84,9 @@ hframes = 9
 position = Vector2(-283, -57)
 
 [node name="Wall" parent="." groups=["walls"] instance=ExtResource("3_jxtwi")]
-position = Vector2(103, -58)
+position = Vector2(84, -45)
 rotation = 1.80049
-scale = Vector2(10.4542, 10.982)
+scale = Vector2(10.4542, 12.4065)
 left_col = 5.0
 right_col = 6.0
 bottom_row = 2.0
@@ -83,3 +103,10 @@ polygon = PackedVector2Array(-213, -319, -164, -193, -285, -104, -385, -48, -283
 visible = false
 position = Vector2(349, 40)
 texture = ExtResource("7_4mco7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-349, 225)
+scale = Vector2(0.790936, 0.790936)
+sprite_frames = SubResource("SpriteFrames_71m2u")
+frame_progress = 0.418203
+speed_scale = 0.2

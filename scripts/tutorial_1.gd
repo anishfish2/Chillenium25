@@ -5,11 +5,20 @@ extends Node2D
 var transitioned: bool = false
 var next_scene = preload("res://levels/level_1.tscn").instantiate()
 
-
+func _ready():
+	var ani = $AnimationPlayer
+	ani.play("tutorial_bg")
+	$AnimatedSprite2D.play()
+	
 func _process(delta: float) -> void:
 	var player = $Player 
-
-	if player.global_position.x > threshold_x:
+	var won = true
+	for wall in get_tree().get_nodes_in_group("walls"):
+		# Directly check the status property.
+		if wall.status != 3:
+			won = false
+			
+	if player.global_position.x > threshold_x and won:
 		get_tree().change_scene_to_file("res://levels/level_1.tscn")
 		
 	if Input.is_action_just_pressed("ui_restart"):
