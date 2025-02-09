@@ -32,27 +32,25 @@ input_pickable = true
 script = ExtResource("1_p0up6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 scale = Vector2(0.1, 0.1)
-polygon = PackedVector2Array(-70, -60.1016, -90, -50.0846, -90, -20.0339, 80, 30.0508, 100, 10.0169, 90, -10.0169)
+polygon = PackedVector2Array(-50, -40.0677, -90, 0, 60, 60.1016, 90, 20.0339)
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_fqsl3")
 frame = 3
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 scale = Vector2(0.1, 0.1)
 polygon = PackedVector2Array(-46, -53.0897, -79, -37.0626, -78, 14.0237, 53, 58.0982, 79, 30.0508, 77, -15.0254)
 
 [node name="cane_range" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cane_range"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://clbkqy70au5wf" path="res://scenes/player.tscn" id="1_gwb56"]
 [ext_resource type="PackedScene" uid="uid://cm74ua71htqoa" path="res://scenes/Wall.tscn" id="2_q2abo"]
-[ext_resource type="Texture2D" uid="uid://dwoku2i5pip0s" path="res://assets/level one background.png" id="3_c528c"]
+[ext_resource type="Texture2D" uid="uid://dtu05otjcb6il" path="res://assets/level one background_fin.png" id="3_dw3ug"]
 [ext_resource type="PackedScene" uid="uid://y0dgjyl001g7" path="res://scenes/raising_planes.tscn" id="3_geujv"]
 
 [node name="Node2D" type="Node2D"]
@@ -40,6 +40,6 @@ bottom_row = 2.0
 top_row = 3.0
 
 [node name="LevelOneBackground" type="Sprite2D" parent="."]
-texture = ExtResource("3_c528c")
+texture = ExtResource("3_dw3ug")
 
 [node name="RaisingPlanes" parent="." instance=ExtResource("3_geujv")]

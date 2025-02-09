@@ -27,7 +27,6 @@ func on_player_collide(collision_point: Vector2, collision_normal: Vector2) -> v
 		return  # Exit if we're still in cooldown.
 	can_register_hit = false
 	var direction = get_relative_direction(collision_point)
-	print('got here asdf')
 	flash_wall()
 	$CooldownTimer.start()
 	emit_signal("flash_triggered", 200.0, flash_duration, left_col, right_col, bottom_row, top_row, direction)
@@ -42,7 +41,7 @@ func _process(delta: float) -> void:
 		var sprite = get_node('/root/Node2D/Player/forward')
 
 		var min_player_y = sprite.global_position.y 
-		var min_wall_y = get_min_player_y($AnimatedSprite2D)
+		var min_wall_y = get_min_y($AnimatedSprite2D)
 
 		if min_wall_y != null:
 			if min_player_y <= min_wall_y:
@@ -52,11 +51,12 @@ func _process(delta: float) -> void:
 				
 		if right_status + left_status + bottom_status + top_status == 4 and status < 2:
 			var planes_raising = get_parent().get_node("RaisingPlanes")
-			#if planes_raising:
-				#planes_raising.filter_markers()
+			if planes_raising:
+				planes_raising.filter_markers()
+			print("upgraded")
 			status = 1
 		
-func get_min_player_y(animated_sprite: AnimatedSprite2D):
+func get_min_y(animated_sprite: AnimatedSprite2D):
 	var frameIndex: int = $AnimatedSprite2D.get_frame()
 	var animationName: String = $AnimatedSprite2D.animation
 	var spriteFrames: SpriteFrames = $AnimatedSprite2D.get_sprite_frames()
@@ -80,27 +80,41 @@ func flash_wall() -> void:
 func _ready() -> void:
 	add_to_group("wall")
 
-
 func get_relative_direction(point: Vector2) -> int:
-	var diff: Vector2 = point - global_position  # Calculate vector from wall center to collision point.
+	# Calculate vector from the wall center to the collision point.
+	var diff: Vector2 = point - global_position
 
-	# Check the horizontal direction.
-	if diff.x < 0:
-		# The collision point is to the left of the wall.
-		if diff.y < 0:
-			left_status = 1
-			return 1  # Top Left
-		else:
-			bottom_status = 1
-			return 3 # Bottom Left
-	else:
-		# The collision point is to the right of the wall.
-		if diff.y < 0:
-			top_status = 1
-			return 4 # Top Right
-		else:
-			right_status = 1
-			return 2  # Bottom Right
+	# Compute the angle (in degrees) of the diff vector.
+	var angle_deg: float = rad_to_deg(atan2(diff.y, diff.x))
+	if angle_deg < 0:
+		angle_deg += 360  # Normalize angle to the range [0, 360)
+	
+
+
+	# Check each region based on the boundary angles:
+
+	# Region for "Right" (classification 2): between (8,2) and (6,-6).
+	# That is: angle >= 315° or angle < 14.036°.
+	if angle_deg >= 315 or angle_deg < 14.036:
+		top_status = 1
+		return 4
+		
+	# Region for "Top" (classification 4): between (8,2) and (-6,6) i.e., 14.036° to 135°.
+	elif angle_deg >= 14.036 and angle_deg < 135:
+		right_status = 1
+		return 2
+
+	# Region for "Left" (classification 1): between (-6,6) and (-8,-1) i.e., 135° to 187.125°.
+	elif angle_deg >= 135 and angle_deg < 187.125:
+		bottom_status = 1
+		return 3
+
+	# Region for "Bottom" (classification 3): between (-8,-1) and (6,-6) i.e., 187.125° to 315°.
+	elif angle_deg >= 187.125 and angle_deg < 315:
+		left_status = 1
+		return 1
+
+	return	 0  # Fallback (should not be reached if all cases are covered).
 
 
 func _on_cooldown_timer_timeout() -> void:

@@ -32,7 +32,18 @@ func set_base_data(base_pos: Vector2, target_h: float, anim_duration: float) -> 
 func _on_tween_finished() -> void:
 	animation_played = true
 	set_process(false)
+func reverse_animation() -> void:
+	# Start processing to trigger redraws during the tween.
+	set_process(true)
+	var tween = create_tween()
+	tween.tween_property(self, "current_height", 0.0, duration) \
+		.set_trans(Tween.TRANS_LINEAR) \
+		.set_ease(Tween.EASE_IN_OUT)
+	tween.connect("finished", Callable(self, "_on_reverse_tween_finished"))
 
+func _on_reverse_tween_finished() -> void:
+	# Optionally, you can reset animation_played or perform other actions here.
+	set_process(false)
 func _process(delta: float) -> void:
 	queue_redraw()
 

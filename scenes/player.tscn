@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bdpsjc7v2tka3" path="res://assets/right_sprite-Sheet.png" id="5_vkx2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nulvq"]
-size = Vector2(15, 10)
+size = Vector2(23.5, 18)
 
 [sub_resource type="Animation" id="Animation_ti713"]
 resource_name = "foward_walk"
@@ -139,7 +139,7 @@ size = Vector2(54, 50)
 script = ExtResource("1_amhil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(10, 7)
 shape = SubResource("RectangleShape2D_nulvq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -171,6 +171,5 @@ visible = false
 z_index = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_cane"]
-visible = false
 position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_aslw2")
