@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dymkttgdvf4v8"]
+[gd_scene load_steps=12 format=3 uid="uid://dymkttgdvf4v8"]
 
 [ext_resource type="Script" path="res://scripts/tutorial_2.gd" id="1_3dn2l"]
 [ext_resource type="Texture2D" uid="uid://bnmnftf6tuurd" path="res://assets/tutorial.png" id="2_vkt6n"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://y0dgjyl001g7" path="res://scenes/raising_planes.tscn" id="5_0dbii"]
 [ext_resource type="Texture2D" uid="uid://dro5fdk7x76p1" path="res://assets/door.png" id="7_lvuba"]
 [ext_resource type="Texture2D" uid="uid://b8lesp5lhve1a" path="res://assets/text 2 (2).png" id="7_vy866"]
+[ext_resource type="Texture2D" uid="uid://ewddiqy2jl1a" path="res://assets/text 1 (7).png" id="8_l36yk"]
 
 [sub_resource type="Animation" id="Animation_7ewln"]
 length = 0.001
@@ -88,3 +89,8 @@ top_row = 5.0
 position = Vector2(-310.5, 255.25)
 scale = Vector2(0.692192, 0.716374)
 texture = ExtResource("7_vy866")
+
+[node name="Text1(7)" type="Sprite2D" parent="."]
+position = Vector2(132, 255)
+scale = Vector2(0.599415, 0.599415)
+texture = ExtResource("8_l36yk")
